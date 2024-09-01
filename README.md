@@ -1,0 +1,2 @@
+# whmcs_8.10.0_with_logam2_theme_activated
+whmcs_8.10.0_with_logam2_theme_activated
