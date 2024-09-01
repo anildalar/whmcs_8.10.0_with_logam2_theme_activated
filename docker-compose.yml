@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: whmcs_web
+    volumes:
+      - ./whmcs:/var/www/html
+    ports:
+      - "8081:80"
+    networks:
+      - whmcs-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: whmcs_db
+    volumes:
+      - ./db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_DATABASE: whmcs
+      MYSQL_USER: whmcs_user
+      MYSQL_PASSWORD: whmcs_password
+    networks:
+      - whmcs-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: whmcs_phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=your_root_password
+    ports:
+      - "8079:80"
+    depends_on:
+      - db
+    networks:
+      - whmcs-network
+
+volumes:
+  db_data:
+
+networks:
+  whmcs-network:
+    driver: bridge
