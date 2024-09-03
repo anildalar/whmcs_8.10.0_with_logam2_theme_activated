@@ -119,10 +119,7 @@
                                 <span class="type_name">{lang key='support.requestor.'|cat:$reply.requestor.type_normalised}</span>
                             </span>
                         </div>
-                        
-                        {$newReplyDate = "("|explode:$reply.date}
-                        {$replyHours = '('|cat:{$newReplyDate|@end}}
-                        <div class="date">{$newReplyDate[0]|date_format:"%d/%m/%Y"} {$replyHours}</div>
+                        <div class="date">{$reply.date}</div>
                     </div>
                 </div>            
                 <div class="ticket-reply-message markdown-content">

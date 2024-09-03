@@ -33,7 +33,7 @@
     --app-nav-top-menu-link-padding-h:              var(--spacing-3x);
     --app-nav-top-menu-link-padding-v:              var(--spacing-2x);
 
-    --app-nav-top-menu-dropdown-width:              240px;
+    --app-nav-top-menu-dropdown-width:              250px;
     --app-nav-top-menu-dropdown-icon-size:           40px;
 
     /* Secondary Navigation*/
@@ -118,6 +118,8 @@
     
     /* Section: Extended Navigation */
     --extended-nav-dropdown-width:                        364px;
+    --extended-nav-link-hover-bg:                       var(--brand-primary-lighter-4);
+    --extended-nav-link-hover-color:                    var(--brand-primary);
 
     /* Section: Top New Layout Navigation */
     --app-nav-top-new-spacing-h:                        var(--spacing-3x);

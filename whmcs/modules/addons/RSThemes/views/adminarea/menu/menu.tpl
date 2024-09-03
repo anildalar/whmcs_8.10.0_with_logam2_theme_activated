@@ -63,8 +63,8 @@
                                         <input class="form-control input-group__form-control table-search" data-toggler-options="toggleFocus: true; clearOnBlur: true;" value="" placeholder="{$lang.general.search}..." id="main-search">
                                     </div>
                                     <button data-menu-import-btn class="btn btn--secondary">
-                                        <span class="btn__text">{$lang.general.import}</span>
-                                        <i class="btn__icon lm lm-download"></i>
+                                        <span class="btn__text">{$lang.general.import}</span><i class="btn__icon lm lm-download"></i>
+                                        <span class="btn__preloader preloader"></span>
                                     </button>
                                     <a class="btn btn--primary" href="{$helper->url('Menu@new',['templateName' => $template->getMainName(), 'menuLocation' => 'Main Menu', 'currentDisplay' => $template->getActiveDisplay()->id, 'menuTab' => 'main'])}">
                                         <i class="btn__icon lm lm-plus"></i>
@@ -157,6 +157,7 @@
                                     <button data-menu-import-btn class="btn btn--secondary">
                                         <span class="btn__text">{$lang.general.import}</span>
                                         <i class="btn__icon lm lm-download"></i>
+                                        <span class="btn__preloader preloader"></span>
                                     </button>
                                     <a class="btn btn--primary" href="{$helper->url('Menu@new',['templateName' => $template->getMainName(), 'menuLocation' => 'Secondary Menu', 'currentDisplay' => $template->getActiveDisplay()->id, 'menuTab' => 'secondary'])}">
                                         <i class="btn__icon lm lm-plus"></i>
@@ -250,6 +251,7 @@
                                     <button data-menu-import-btn class="btn btn--secondary">
                                         <span class="btn__text">{$lang.general.import}</span>
                                         <i class="btn__icon lm lm-download"></i>
+                                        <span class="btn__preloader preloader"></span>
                                     </button>
                                     <a class="btn btn--primary" href="{$helper->url('Menu@new',['templateName' => $template->getMainName(), 'menuLocation' => 'Footer', 'currentDisplay' => $template->getActiveDisplay()->id, 'menuTab' => 'footer'])}">
                                         <i class="btn__icon lm lm-plus"></i>

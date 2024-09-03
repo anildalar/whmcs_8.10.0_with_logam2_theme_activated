@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:57:59
+/* Smarty version 3.1.48, created on 2024-09-03 11:58:42
   from '/var/www/html/admin/templates/blend/authconfirm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bc17000d99_41965553',
+  'unifunc' => 'content_66d6f9f28af547_94391075',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bc17000d99_41965553 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f9f28af547_94391075 (Smarty_Internal_Template $_smarty_tpl) {
 ?><style>
 .contentarea {
     background-color: #f8f8f8;

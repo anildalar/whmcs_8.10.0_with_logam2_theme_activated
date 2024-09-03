@@ -7,7 +7,7 @@ RewriteEngine on
 # installation directory is relocated.  It is imperative that
 # there is also a RewriteCond rule later that can effectively get
 # the actual value by comparison against the request URI.
-# 
+#
 # If there are _any_ other RewriteBase directives in this file,
 # the last entry will take precedence!
 RewriteBase /

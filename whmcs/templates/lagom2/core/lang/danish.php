@@ -24,7 +24,10 @@ return [
     'support' => [
         'available_departments'         => 'Tilgængelige afdelinger',
         'select_file'                   => 'Vælg fil',
-        'no_file_selected'              => 'Ingen fil valgt',         
+        'no_file_selected'              => 'Ingen fil valgt',
+        'sensitive_data'                => 'Sensitive Data',
+        'sensitive_data_ticket'         => 'Ticket Sensitive Data',
+        'sensitive_data_ticket_desc'    => 'Use this field to post sensitive data like SFTP/FTP access, WHMCS admin area login details, etc. <strong> Data posted in this field will be securely stored and encrypted.</strong> You’ll be able to edit and remove this field in the ticket page.'
     ],
 
     'billing' => [

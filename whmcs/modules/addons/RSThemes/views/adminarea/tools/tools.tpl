@@ -48,44 +48,64 @@
                     Refresh
                 </button>
             </div>  
-        </div>        
+        </div>
         {if $template->getActiveDisplay()->name == 'CMS'}
             <div class="panel d-flex align-items-center">
                 <div class="panel__body">
                     <h6>Menu Cache</h6>
                     <p class="text-gray m-b-0x">Clear main navigation cache stored in Lagom database. Action may be required if main navigation won't be automatically updated on your website. <a href="https://lagom.rsstudio.net/docs/website-builder/caching/#main-navigation-caching" target="_blank">Learn more..</a></p>
-                </div>  
+                </div>
                 <div class="p-l-3x m-l-a panel__actions">
                     <button
-                        class="btn btn--primary"
-                        type="button"
-                        data-toggle="lu-modal"
-                        data-backdrop="static"
-                        data-keyboard="false"
-                        data-target="#refresh-menu-cache"
+                            class="btn btn--primary"
+                            type="button"
+                            data-toggle="lu-modal"
+                            data-backdrop="static"
+                            data-keyboard="false"
+                            data-target="#refresh-menu-cache"
                     >
                         Refresh
                     </button>
-                </div>  
+                </div>
             </div>
             <div class="panel d-flex align-items-center">
                 <div class="panel__body">
                     <h6>Section Cache</h6>
                     <p class="text-gray m-b-0x">Clear CMS section cache stored in Lagom database. Action may be required if CMS page content has not been automatically updated. <a href="https://lagom.rsstudio.net/docs/website-builder/caching/#page-sections-caching" target="_blank">Learn more..</a></p>
-                </div>  
+                </div>
                 <div class="p-l-3x m-l-a panel__actions">
                     <button
-                        class="btn btn--primary"
-                        type="button"
-                        data-toggle="lu-modal"
-                        data-backdrop="static"
-                        data-keyboard="false"
-                        data-target="#refresh-section-cache"
+                            class="btn btn--primary"
+                            type="button"
+                            data-toggle="lu-modal"
+                            data-backdrop="static"
+                            data-keyboard="false"
+                            data-target="#refresh-section-cache"
                     >
                         Refresh
                     </button>
-                </div>  
+                </div>
             </div>
+            {if $isNginx}
+                <div class="panel d-flex align-items-center">
+                    <div class="panel__body">
+                        <h6>NGINX .htaccess Generator Tool</h6>
+                        <p class="text-gray m-b-0x">Automatically updates NGINX rewrite rules when pages are modified. This tool manages backups of your current configurations, applies new settings, and verifies the NGINX configuration. <a href="https://lagom.rsstudio.net/docs/website-builder/installation/#nginx-server" target="_blank">Learn more..</a></p>
+                    </div>
+                    <div class="p-l-3x m-l-a panel__actions">
+                        <button
+                                class="btn btn--primary"
+                                type="button"
+                                data-toggle="lu-modal"
+                                data-backdrop="static"
+                                data-keyboard="false"
+                                data-target="#generate-nginx-htaccess"
+                        >
+                            Generate
+                        </button>
+                    </div>
+                </div>
+            {/if}
         {/if}
     </div>
 {/block}
@@ -96,6 +116,9 @@
     {if $template->getActiveDisplay()->name == 'CMS'}
         {include file="adminarea/includes/modals/refresh-menu-cache.tpl"}
         {include file="adminarea/includes/modals/refresh-section-cache.tpl"}
+        {if $isNginx}
+            {include file="adminarea/includes/modals/generate-nginx-htaccess.tpl"}
+        {/if}    
     {/if}    
 {/block}
 

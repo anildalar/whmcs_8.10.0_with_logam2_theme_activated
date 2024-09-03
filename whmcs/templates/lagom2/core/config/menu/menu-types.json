@@ -38,5 +38,9 @@
   {
     "name" : "Header",
     "view" : "header"
+  },
+  {
+    "name" : "Header Collapse",
+    "view" : "header-collapse"
   }
 ]

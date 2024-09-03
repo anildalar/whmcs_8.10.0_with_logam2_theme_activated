@@ -91,6 +91,9 @@
 
                                                     {* Capitalize Section Titles *}
                                                     {include file="adminarea/settings/includes/capitalize_section_titles.tpl"}
+
+                                                    {* Hide Discounts *}
+                                                    {include file="adminarea/settings/includes/hide-discounts.tpl"}
                                                 </div>
                                             </div>
                                         </div> 

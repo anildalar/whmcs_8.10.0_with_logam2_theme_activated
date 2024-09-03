@@ -1428,11 +1428,63 @@ function generateRsMenu($navbar, $menu, $language, $layout, $vars, $navbarType) 
                                 $childName = MenuProcessor::getMenuItemName($child);
                                 $childLabel = MenuProcessor::getMenuItemLabel($child, $language);
                                 $childDescription = MenuProcessor::getMenuItemDescription($child, $language);
-
+                                $navItemClasses = "nav-header";
+                                if (isset($child->content->display_settings['custom-data-classes'])) {
+                                    if ($child->content->display_settings['custom-data-classes'] != ""){
+                                        $navItemClasses .= ' '.$child->content->display_settings['custom-data-classes'];
+                                    }
+                                }
                                 $navItem->addChild("Header-{$child->id}", [
                                     'bodyHtml' => $childLabel,
                                     'order' => $childOrder
-                                ])->setClass('nav-header');
+                                ])->setClass($navItemClasses);
+                            }
+
+                            if ($child->content->type->name == 'Header Collapse') {
+                                $childName = MenuProcessor::getMenuItemName($child);
+                                $childLabel = MenuProcessor::getMenuItemLabel($child, $language);
+                                $childDescription = MenuProcessor::getMenuItemDescription($child, $language);
+                                
+                                if (isset($child->content->display_settings['style'])) {
+                                    $childItemStyle = $child->content->display_settings['style']['layout'];
+                                    $iconHtml = '';
+                                    if (isset($child->content->content_settings['icon']) && !empty($child->content->content_settings['icon'])) {
+                                        $itemIcon = $child->content->content_settings['icon'];
+                                        if (!strstr($itemIcon, 'fa-')){
+                                            $itemIcon = 'fa fa-test ' . $itemIcon;
+                                        }
+                                        $iconHtml = '<i class="'.$itemIcon.'"></i>';
+                                    }
+                                    if (isset($child->content->content_settings['predefined_icon']) && !empty($child->content->content_settings['predefined_icon'])) {
+                                        $predefinedIcon = $child->content->content_settings['predefined_icon'];
+                                        if (str_contains($predefinedIcon, '.tpl')) {
+                                            $iconPath = __DIR__ ."/../../assets/svg-icon/{$predefinedIcon}";
+                                        }
+                                        else{
+                                            $iconPath = __DIR__ ."/../../assets/svg-icon/{$predefinedIcon}.tpl";
+                                        }
+                                        if (file_exists($iconPath)) {
+                                            $iconHtml = file_get_contents($iconPath);
+                                        }
+                                    }
+                                    if (isset($child->content->content_settings['media']) && !empty($child->content->content_settings['media'])) {
+                                        $iconHtml = '<img class="lazyload hidden" data-src="'.$vars['WEB_ROOT'].'/templates/'.$vars['template'].'/assets/img/page-manager/'.$child->content->content_settings['media'].'" alt="'.$child->content->content_settings['media'].'"/>';
+                                    }
+                                    if ($childItemStyle == 'text'){
+                                        $childBuildInClasses .= 'nav-item-text-only';
+                                    }
+                                    if ($childItemStyle == "icon"){                                            
+                                        $childBuildInClasses .= 'nav-item-icon-only';
+                                    } 
+
+                                }
+
+
+                                $collapseHTML = '<span class="nav-header-item collapsed" data-toggle="collapse" data-target="#items-collapse-'.$child->id.'"><span class="nav-header-text">'.$iconHtml.$childLabel.'</span><b class="ls ls-caret"></b></span>';
+                                $navItem->addChild("Header-collapse-{$child->id}", [
+                                    'bodyHtml' => $collapseHTML,
+                                    'order' => $childOrder
+                                ])->setClass('nav-header-collapse');
                             }
 
                             /*** Child Item Type - Predefined List ***/

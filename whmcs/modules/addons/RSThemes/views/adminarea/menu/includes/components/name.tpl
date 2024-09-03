@@ -99,7 +99,7 @@
         </div>
     </div>
 </div>
-{if $level == 1 && $location !== 'Footer' && $type !== "Header"}
+{if $level == 1 && $location !== 'Footer' && $type !== "Header" && $type !== "HeaderCollapse"}
     <div class="menu-name-group form-group col-md-12">
         <div class="d-flex">
             <label class="form-label">

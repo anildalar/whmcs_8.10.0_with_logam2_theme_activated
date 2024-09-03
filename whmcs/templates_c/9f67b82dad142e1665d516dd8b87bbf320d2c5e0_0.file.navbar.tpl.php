@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/includes/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac48f5236_16827044',
+  'unifunc' => 'content_66d6f96c2e3b56_69394140',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9f67b82dad142e1665d516dd8b87bbf320d2c5e0' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/navbar.tpl',
-      1 => 1713439608,
+      1 => 1719918048,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/".((string)$_smarty_tpl->tpl_vars[\'template\']->value)."/includes/common/currency-dropdown.tpl' => 1,
   ),
 ),false)) {
-function content_66d3bac48f5236_16827044 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c2e3b56_69394140 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/vendor/smarty/smarty/libs/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),1=>array('file'=>'/var/www/html/vendor/smarty/smarty/libs/plugins/function.counter.php','function'=>'smarty_function_counter',),));
 if ((isset($_smarty_tpl->tpl_vars['primaryNavbarHtmlCache']->value)) && $_smarty_tpl->tpl_vars['navtype']->value == "primary") {?>
     <?php echo $_smarty_tpl->tpl_vars['primaryNavbarHtmlCache']->value;?>
@@ -49,12 +49,15 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['item']->value->hasChildren()) {?>
                     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem', true);
+$_smarty_tpl->tpl_vars['childItem']->iteration = 0;
 $_smarty_tpl->tpl_vars['childItem']->index = -1;
 $_smarty_tpl->tpl_vars['childItem']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['childItem']->value) {
 $_smarty_tpl->tpl_vars['childItem']->do_else = false;
+$_smarty_tpl->tpl_vars['childItem']->iteration++;
 $_smarty_tpl->tpl_vars['childItem']->index++;
+$_smarty_tpl->tpl_vars['childItem']->last = $_smarty_tpl->tpl_vars['childItem']->iteration === $_smarty_tpl->tpl_vars['childItem']->total;
 $__foreach_childItem_4_saved = $_smarty_tpl->tpl_vars['childItem'];
 ?>
                         <?php $_smarty_tpl->_assignInScope('activePage', false);?>
@@ -240,17 +243,21 @@ echo $_smarty_tpl->tpl_vars['item']->value->getBadge();
 } else { ?>has-scroll<?php }?> <?php if ($_smarty_tpl->tpl_vars['item']->value->getName() == "Account" && $_smarty_tpl->tpl_vars['loggedin']->value) {?>dropdown-menu-right<?php }?> <?php if ($_smarty_tpl->tpl_vars['item']->value->getAttribute('notificationDropdown')) {?>client-alerts<?php }?>">
                             <div class="dropdown-menu-body">
                                 <div class="dropdown-menu-content">
+                                    <?php $_smarty_tpl->_assignInScope('collapseOpened', false);?>
                                     <?php $_smarty_tpl->_assignInScope('headerFirst', false);?>
                                     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem', false, 'key');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem', true, 'key');
+$_smarty_tpl->tpl_vars['childItem']->iteration = 0;
 $_smarty_tpl->tpl_vars['childItem']->index = -1;
 $_smarty_tpl->tpl_vars['childItem']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['childItem']->value) {
 $_smarty_tpl->tpl_vars['childItem']->do_else = false;
+$_smarty_tpl->tpl_vars['childItem']->iteration++;
 $_smarty_tpl->tpl_vars['childItem']->index++;
+$_smarty_tpl->tpl_vars['childItem']->last = $_smarty_tpl->tpl_vars['childItem']->iteration === $_smarty_tpl->tpl_vars['childItem']->total;
 $__foreach_childItem_6_saved = $_smarty_tpl->tpl_vars['childItem'];
 ?>
-                                        <?php if ($_smarty_tpl->tpl_vars['childItem']->index == 0 && strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header") && strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header")) {?>
+                                        <?php if ($_smarty_tpl->tpl_vars['childItem']->index == 0 && strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header") && strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header-collapse")) {?>
                                             <?php $_smarty_tpl->_assignInScope('headerFirst', true);?>
                                         <?php }?>
                                     <?php
@@ -263,12 +270,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                                 <?php echo smarty_function_counter(array('assign'=>'i','start'=>0,'print'=>false),$_smarty_tpl);?>
 
                                                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem', true);
+$_smarty_tpl->tpl_vars['childItem']->iteration = 0;
 $_smarty_tpl->tpl_vars['childItem']->index = -1;
 $_smarty_tpl->tpl_vars['childItem']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['childItem']->value) {
 $_smarty_tpl->tpl_vars['childItem']->do_else = false;
+$_smarty_tpl->tpl_vars['childItem']->iteration++;
 $_smarty_tpl->tpl_vars['childItem']->index++;
+$_smarty_tpl->tpl_vars['childItem']->last = $_smarty_tpl->tpl_vars['childItem']->iteration === $_smarty_tpl->tpl_vars['childItem']->total;
 $__foreach_childItem_7_saved = $_smarty_tpl->tpl_vars['childItem'];
 ?>
                                                     <?php echo smarty_function_counter(array(),$_smarty_tpl);?>
@@ -288,7 +298,7 @@ if ($_smarty_tpl->tpl_vars['RSThemes']->value['addonSettings']['gravatar_placeho
                                                             </div>
                                                         </li>
                                                     <?php } else { ?>
-                                                        <?php if (!strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Divider") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-divider") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header")) {?>
+                                                        <?php if ((!strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Divider") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-divider") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header") && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header")) || ($_smarty_tpl->tpl_vars['collapseOpened']->value && strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Divider"))) {?>
                                                             <li menuItemName="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getName();?>
 " class="dropdown-menu-item <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getClass()) {
 echo $_smarty_tpl->tpl_vars['childItem']->value->getClass();
@@ -327,11 +337,35 @@ echo $_smarty_tpl->tpl_vars['childItem']->value->getBadge();
                                                                     <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getFooterHtml();?>
 
                                                                 <?php }?>
-                                                            </li>
+                                                            </li> 
+                                                        <?php } elseif (strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header-collapse") && strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header-collapse")) {?>
+                                                            <?php if ($_smarty_tpl->tpl_vars['collapseOpened']->value) {?>
+                                                                </ul></div></li>
+                                                                <?php $_smarty_tpl->_assignInScope('collapseOpened', false);?>
+                                                            <?php }?>
+                                                                <li menuItemName="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getName();?>
+" class="<?php if ($_smarty_tpl->tpl_vars['childItem']->value->getClass()) {
+echo $_smarty_tpl->tpl_vars['childItem']->value->getClass();
+}?> <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getName() == $_smarty_tpl->tpl_vars['activePage']->value) {?>active<?php }?>" id="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getId();?>
+">
+                                                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBodyHtml()) {?>
+                                                                        <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
+
+                                                                    <?php }?>
+                                                                    <div class="collapse" id="items-collapse-<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['childItem']->value->getName(),'Header-collapse-','');?>
+">
+                                                                        <ul class="dropdown-menu dropdown-menu-collapse show" >
+                                                                        <?php $_smarty_tpl->_assignInScope('collapseOpened', true);?>
                                                         <?php } elseif (strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header") && strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header")) {?>
-                                                            <?php if ($_smarty_tpl->tpl_vars['i']->value != "1") {?>
+                                                            <?php if ($_smarty_tpl->tpl_vars['i']->value != "1" && !$_smarty_tpl->tpl_vars['collapseOpened']->value && !strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"keep-column")) {?>
                                                                 </ul></div></div>
                                                             <?php }?>
+                                                            <?php if ($_smarty_tpl->tpl_vars['collapseOpened']->value || strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"keep-column")) {?>
+                                                                <li class="nav-header">
+                                                                    <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
+
+                                                                </li>
+                                                            <?php } else { ?>
                                                             <div class="dropdown-menu-parent">
                                                                 <div class="nav-header">
                                                                     <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
@@ -339,6 +373,7 @@ echo $_smarty_tpl->tpl_vars['childItem']->value->getBadge();
                                                                 </div>
                                                                 <div class="dropdown-menu-cols">
                                                                     <ul class="dropdown-menu-list">
+                                                            <?php }?>        
                                                         <?php } else { ?>
                                                             </ul><ul class="dropdown-menu-list">
                                                         <?php }?>
@@ -347,9 +382,18 @@ echo $_smarty_tpl->tpl_vars['childItem']->value->getBadge();
 $_smarty_tpl->tpl_vars['childItem'] = $__foreach_childItem_7_saved;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                                <?php if ($_smarty_tpl->tpl_vars['childItem']->last && $_smarty_tpl->tpl_vars['collapseOpened']->value) {?>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                <?php } else { ?>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                <?php }?>
                                 </div>
                                 <?php if ($_smarty_tpl->tpl_vars['item']->value->hasFooterHtml()) {?>
                                     <div class="dropdown-menu-sidebar">
@@ -362,19 +406,23 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
                     <?php } else { ?>
-                                                <ul class="dropdown-menu dropdown-lazy <?php if ($_smarty_tpl->tpl_vars['RSThemes']->value['layouts']['templateLayout'] == "left-nav-wide" && $_smarty_tpl->tpl_vars['navtype']->value == "primary") {
+                                                <?php $_smarty_tpl->_assignInScope('collapseOpened', false);?>
+                        <ul class="dropdown-menu dropdown-lazy <?php if ($_smarty_tpl->tpl_vars['RSThemes']->value['layouts']['templateLayout'] == "left-nav-wide" && $_smarty_tpl->tpl_vars['navtype']->value == "primary") {
 } else { ?>has-scroll<?php }?> <?php if ($_smarty_tpl->tpl_vars['item']->value->getName() == "Account" && $_smarty_tpl->tpl_vars['loggedin']->value) {?>dropdown-menu-right<?php }?> <?php if ($_smarty_tpl->tpl_vars['item']->value->getAttribute('notificationDropdown')) {?>client-alerts<?php }?>">
                             <?php if ($_smarty_tpl->tpl_vars['RSThemes']->value['layouts']['vars']['type'] == "navbar-left" && $_smarty_tpl->tpl_vars['navtype']->value == "primary") {?>
                                 <li class="dropdown-header"><?php echo $_smarty_tpl->tpl_vars['item']->value->getLabel();?>
 </li>
                             <?php }?>
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['item']->value->getChildren(), 'childItem', true);
+$_smarty_tpl->tpl_vars['childItem']->iteration = 0;
 $_smarty_tpl->tpl_vars['childItem']->index = -1;
 $_smarty_tpl->tpl_vars['childItem']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['childItem']->value) {
 $_smarty_tpl->tpl_vars['childItem']->do_else = false;
+$_smarty_tpl->tpl_vars['childItem']->iteration++;
 $_smarty_tpl->tpl_vars['childItem']->index++;
+$_smarty_tpl->tpl_vars['childItem']->last = $_smarty_tpl->tpl_vars['childItem']->iteration === $_smarty_tpl->tpl_vars['childItem']->total;
 $__foreach_childItem_8_saved = $_smarty_tpl->tpl_vars['childItem'];
 ?>
                                 <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getName() == 'Client Details' && $_smarty_tpl->tpl_vars['loggedin']->value) {?>
@@ -392,45 +440,71 @@ if ($_smarty_tpl->tpl_vars['RSThemes']->value['addonSettings']['gravatar_placeho
                                         </div>
                                     </li>
                                 <?php } else { ?>
-                                <li menuItemName="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getName();?>
+                                    <?php if (strstr($_smarty_tpl->tpl_vars['childItem']->value->getName(),"Header-collapse") && strstr($_smarty_tpl->tpl_vars['childItem']->value->getClass(),"nav-header-collapse")) {?>
+                                        <?php if ($_smarty_tpl->tpl_vars['collapseOpened']->value) {?>
+                                                </ul>
+                                             </li>
+                                            <?php $_smarty_tpl->_assignInScope('collapseOpened', false);?>
+                                        <?php }?>
+                                        <li menuItemName="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getName();?>
 " class="<?php if ($_smarty_tpl->tpl_vars['childItem']->value->getClass()) {
 echo $_smarty_tpl->tpl_vars['childItem']->value->getClass();
 }?> <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getName() == $_smarty_tpl->tpl_vars['activePage']->value) {?>active<?php }?>" id="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getId();?>
 ">
-                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBodyHtml()) {?>
-                                        <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
+                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBodyHtml()) {?>
+                                                <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
 
+                                            <?php }?>
+                                            <div class="collapse" id="items-collapse-<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['childItem']->value->getName(),'Header-collapse-','');?>
+">
+                                                <ul class="dropdown-menu dropdown-menu-collapse show" >
+                                                <?php $_smarty_tpl->_assignInScope('collapseOpened', true);?>
                                     <?php } else { ?>
-                                        <a
-                                            <?php if (strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"javascript:void") || strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"tel:") || strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"mailto:")) {?>
-                                                href="<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"/",'');?>
-"
+                                        <li menuItemName="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getName();?>
+" class="<?php if ($_smarty_tpl->tpl_vars['childItem']->value->getClass()) {
+echo $_smarty_tpl->tpl_vars['childItem']->value->getClass();
+}?> <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getName() == $_smarty_tpl->tpl_vars['activePage']->value) {?>active<?php }?>" id="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getId();?>
+">
+                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBodyHtml()) {?>
+                                                <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getBodyHtml();?>
+
                                             <?php } else { ?>
-                                                href="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getUri();?>
+                                                <a
+                                                    <?php if (strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"javascript:void") || strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"tel:") || strstr($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"mailto:")) {?>
+                                                        href="<?php echo smarty_modifier_replace($_smarty_tpl->tpl_vars['childItem']->value->getUri(),"/",'');?>
 "
-                                            <?php }?>
-                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getAttribute('target')) {?> target="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getAttribute('target');?>
+                                                    <?php } else { ?>
+                                                        href="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getUri();?>
+"
+                                                    <?php }?>
+                                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->getAttribute('target')) {?> target="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getAttribute('target');?>
 "<?php }?>
-                                        >
-                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasIcon()) {?>
-                                                <i class="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getIcon();?>
+                                                >
+                                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasIcon()) {?>
+                                                        <i class="<?php echo $_smarty_tpl->tpl_vars['childItem']->value->getIcon();?>
 "></i>
-                                            <?php } elseif ($_smarty_tpl->tpl_vars['childItem']->value->hasHeadingHtml()) {?>
-                                                <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getHeadingHtml();?>
+                                                    <?php } elseif ($_smarty_tpl->tpl_vars['childItem']->value->hasHeadingHtml()) {?>
+                                                        <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getHeadingHtml();?>
 
-                                            <?php }?>
-                                            <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getLabel();?>
+                                                    <?php }?>
+                                                    <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getLabel();?>
 
-                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBadge()) {
+                                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasBadge()) {
 echo $_smarty_tpl->tpl_vars['childItem']->value->getBadge();
 }?>
-                                        </a>
-                                    <?php }?>
-                                    <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasFooterHtml()) {?>
-                                        <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getFooterHtml();?>
+                                                </a>
+                                            <?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['childItem']->value->hasFooterHtml()) {?>
+                                                <?php echo $_smarty_tpl->tpl_vars['childItem']->value->getFooterHtml();?>
 
-                                    <?php }?>
-                                </li>
+                                            <?php }?>
+                                        </li>
+                                        <?php if ($_smarty_tpl->tpl_vars['childItem']->last && $_smarty_tpl->tpl_vars['collapseOpened']->value) {?>
+                                                </ul>
+                                                </div>
+                                            </li>
+                                        <?php }?>
+                                    <?php }?>    
                                 <?php }?>
                             <?php
 $_smarty_tpl->tpl_vars['childItem'] = $__foreach_childItem_8_saved;

@@ -141,9 +141,10 @@
                         <div class="dropdown-menu dropdown-lazy {if $RSThemes.layouts.templateLayout ==  "left-nav-wide" && $navtype == "primary"}{else}has-scroll{/if} {if $item->getName() == "Account" && $loggedin}dropdown-menu-right{/if} {if $item->getAttribute('notificationDropdown')}client-alerts{/if}">
                             <div class="dropdown-menu-body">
                                 <div class="dropdown-menu-content">
+                                    {$collapseOpened = false}
                                     {$headerFirst = false}
                                     {foreach from=$item->getChildren() key=$key item=$childItem}
-                                        {if $childItem@index == 0 && $childItem->getName()|strstr:"Header" && $childItem->getClass()|strstr:"nav-header"}
+                                        {if $childItem@index == 0 && $childItem->getName()|strstr:"Header" && $childItem->getClass()|strstr:"nav-header" && !$childItem->getClass()|strstr:"nav-header-collapse"}
                                             {$headerFirst = true}
                                         {/if}
                                     {/foreach}
@@ -165,7 +166,7 @@
                                                             </div>
                                                         </li>
                                                     {else}
-                                                        {if !$childItem->getName()|strstr:"Divider" && !$childItem->getClass()|strstr:"nav-divider" && !$childItem->getName()|strstr:"Header" && !$childItem->getClass()|strstr:"nav-header"}
+                                                        {if (!$childItem->getName()|strstr:"Divider" && !$childItem->getClass()|strstr:"nav-divider" && !$childItem->getName()|strstr:"Header" && !$childItem->getClass()|strstr:"nav-header") || ($collapseOpened && $childItem->getName()|strstr:"Divider")}
                                                             <li menuItemName="{$childItem->getName()}" class="dropdown-menu-item {if $childItem->getClass()}{$childItem->getClass()}{/if} {if $childItem->getName() == $activePage}active{/if}" id="{$childItem->getId()}">
                                                                 {if $childItem->hasBodyHtml()}
                                                                     {$childItem->getBodyHtml()}
@@ -190,25 +191,52 @@
                                                                 {if $childItem->hasFooterHtml()}
                                                                     {$childItem->getFooterHtml()}
                                                                 {/if}
-                                                            </li>
+                                                            </li> 
+                                                        {elseif $childItem->getName()|strstr:"Header-collapse" && $childItem->getClass()|strstr:"nav-header-collapse"}
+                                                            {if $collapseOpened}
+                                                                </ul></div></li>
+                                                                {$collapseOpened = false}
+                                                            {/if}
+                                                                <li menuItemName="{$childItem->getName()}" class="{if $childItem->getClass()}{$childItem->getClass()}{/if} {if $childItem->getName() == $activePage}active{/if}" id="{$childItem->getId()}">
+                                                                    {if $childItem->hasBodyHtml()}
+                                                                        {$childItem->getBodyHtml()}
+                                                                    {/if}
+                                                                    <div class="collapse" id="items-collapse-{$childItem->getName()|replace:'Header-collapse-':''}">
+                                                                        <ul class="dropdown-menu dropdown-menu-collapse show" >
+                                                                        {$collapseOpened = true}
                                                         {elseif $childItem->getName()|strstr:"Header" && $childItem->getClass()|strstr:"nav-header"}
-                                                            {if $i != "1"}
+                                                            {if $i != "1" && !$collapseOpened && !$childItem->getClass()|strstr:"keep-column"}
                                                                 </ul></div></div>
                                                             {/if}
+                                                            {if $collapseOpened || $childItem->getClass()|strstr:"keep-column"}
+                                                                <li class="nav-header">
+                                                                    {$childItem->getBodyHtml()}
+                                                                </li>
+                                                            {else}
                                                             <div class="dropdown-menu-parent">
                                                                 <div class="nav-header">
                                                                     {$childItem->getBodyHtml()}
                                                                 </div>
                                                                 <div class="dropdown-menu-cols">
                                                                     <ul class="dropdown-menu-list">
+                                                            {/if}        
                                                         {else}
                                                             </ul><ul class="dropdown-menu-list">
                                                         {/if}
                                                     {/if}
                                                 {/foreach}
-                                            </ul>
-                                        </div>
-                                    </div>
+                                                {if $childItem@last && $collapseOpened}
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                {else}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                {/if}
                                 </div>
                                 {if $item->hasFooterHtml()}
                                     <div class="dropdown-menu-sidebar">
@@ -221,6 +249,7 @@
                         </div>
                     {else}
                         {* DEFAULT & EXTENDED *}
+                        {$collapseOpened = false}
                         <ul class="dropdown-menu dropdown-lazy {if $RSThemes.layouts.templateLayout ==  "left-nav-wide" && $navtype == "primary"}{else}has-scroll{/if} {if $item->getName() == "Account" && $loggedin}dropdown-menu-right{/if} {if $item->getAttribute('notificationDropdown')}client-alerts{/if}">
                             {if $RSThemes.layouts.vars.type == "navbar-left" && $navtype == "primary"}
                                 <li class="dropdown-header">{$item->getLabel()}</li>
@@ -238,31 +267,51 @@
                                         </div>
                                     </li>
                                 {else}
-                                <li menuItemName="{$childItem->getName()}" class="{if $childItem->getClass()}{$childItem->getClass()}{/if} {if $childItem->getName() == $activePage}active{/if}" id="{$childItem->getId()}">
-                                    {if $childItem->hasBodyHtml()}
-                                        {$childItem->getBodyHtml()}
+                                    {if $childItem->getName()|strstr:"Header-collapse" && $childItem->getClass()|strstr:"nav-header-collapse"}
+                                        {if $collapseOpened}
+                                                </ul>
+                                             </li>
+                                            {$collapseOpened = false}
+                                        {/if}
+                                        <li menuItemName="{$childItem->getName()}" class="{if $childItem->getClass()}{$childItem->getClass()}{/if} {if $childItem->getName() == $activePage}active{/if}" id="{$childItem->getId()}">
+                                            {if $childItem->hasBodyHtml()}
+                                                {$childItem->getBodyHtml()}
+                                            {/if}
+                                            <div class="collapse" id="items-collapse-{$childItem->getName()|replace:'Header-collapse-':''}">
+                                                <ul class="dropdown-menu dropdown-menu-collapse show" >
+                                                {$collapseOpened = true}
                                     {else}
-                                        <a
-                                            {if $childItem->getUri()|strstr:"javascript:void" || $childItem->getUri()|strstr:"tel:" || $childItem->getUri()|strstr:"mailto:"}
-                                                href="{$childItem->getUri()|replace:"/":""}"
+                                        <li menuItemName="{$childItem->getName()}" class="{if $childItem->getClass()}{$childItem->getClass()}{/if} {if $childItem->getName() == $activePage}active{/if}" id="{$childItem->getId()}">
+                                            {if $childItem->hasBodyHtml()}
+                                                {$childItem->getBodyHtml()}
                                             {else}
-                                                href="{$childItem->getUri()}"
+                                                <a
+                                                    {if $childItem->getUri()|strstr:"javascript:void" || $childItem->getUri()|strstr:"tel:" || $childItem->getUri()|strstr:"mailto:"}
+                                                        href="{$childItem->getUri()|replace:"/":""}"
+                                                    {else}
+                                                        href="{$childItem->getUri()}"
+                                                    {/if}
+                                                    {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}"{/if}
+                                                >
+                                                    {if $childItem->hasIcon()}
+                                                        <i class="{$childItem->getIcon()}"></i>
+                                                    {elseif $childItem->hasHeadingHtml()}
+                                                        {$childItem->getHeadingHtml()}
+                                                    {/if}
+                                                    {$childItem->getLabel()}
+                                                    {if $childItem->hasBadge()}{$childItem->getBadge()}{/if}
+                                                </a>
                                             {/if}
-                                            {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}"{/if}
-                                        >
-                                            {if $childItem->hasIcon()}
-                                                <i class="{$childItem->getIcon()}"></i>
-                                            {elseif $childItem->hasHeadingHtml()}
-                                                {$childItem->getHeadingHtml()}
+                                            {if $childItem->hasFooterHtml()}
+                                                {$childItem->getFooterHtml()}
                                             {/if}
-                                            {$childItem->getLabel()}
-                                            {if $childItem->hasBadge()}{$childItem->getBadge()}{/if}
-                                        </a>
-                                    {/if}
-                                    {if $childItem->hasFooterHtml()}
-                                        {$childItem->getFooterHtml()}
-                                    {/if}
-                                </li>
+                                        </li>
+                                        {if $childItem@last && $collapseOpened}
+                                                </ul>
+                                                </div>
+                                            </li>
+                                        {/if}
+                                    {/if}    
                                 {/if}
                             {/foreach}
                         </ul>

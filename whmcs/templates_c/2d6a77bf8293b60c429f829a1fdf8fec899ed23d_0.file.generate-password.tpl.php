@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/includes/generate-password.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac49a61d8_12385676',
+  'unifunc' => 'content_66d6f96c37c0e3_20651283',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2d6a77bf8293b60c429f829a1fdf8fec899ed23d' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/generate-password.tpl',
-      1 => 1681716328,
+      1 => 1681719928,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bac49a61d8_12385676 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c37c0e3_20651283 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form action="#" id="frmGeneratePassword" class="form-horizontal">
     <div class="modal fade" id="modalGeneratePassword" style="display: none">
         <div class="modal-dialog">

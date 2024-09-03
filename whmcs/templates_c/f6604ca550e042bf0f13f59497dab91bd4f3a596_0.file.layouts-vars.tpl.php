@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/includes/common/layouts-vars.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac48463c8_38482132',
+  'unifunc' => 'content_66d6f96c219844_37761102',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f6604ca550e042bf0f13f59497dab91bd4f3a596' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/common/layouts-vars.tpl',
-      1 => 1710237734,
+      1 => 1710244934,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bac48463c8_38482132 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c219844_37761102 (Smarty_Internal_Template $_smarty_tpl) {
 if ((isset($_smarty_tpl->tpl_vars['mainGridNoSidebarClass']->value)) && $_smarty_tpl->tpl_vars['mainGridNoSidebarClass']->value && (!$_smarty_tpl->tpl_vars['primarySidebar']->value->hasChildren() && !$_smarty_tpl->tpl_vars['secondarySidebar']->value->hasChildren())) {?>
     <?php $_smarty_tpl->_assignInScope('mainGrid', $_smarty_tpl->tpl_vars['mainGridNoSidebarClass']->value ,false ,2);
 } elseif ((isset($_smarty_tpl->tpl_vars['mainGridOrderClass']->value)) && $_smarty_tpl->tpl_vars['mainGridOrderClass']->value) {?>

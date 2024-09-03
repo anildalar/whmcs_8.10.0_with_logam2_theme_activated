@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/includes/common/svg-illustration.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac49e0e10_03034704',
+  'unifunc' => 'content_66d6f96c392bb7_45028275',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea08839b443b7a9bdaeeb3193dc71239285e1856' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/common/svg-illustration.tpl',
-      1 => 1679472290,
+      1 => 1679479490,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bac49e0e10_03034704 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c392bb7_45028275 (Smarty_Internal_Template $_smarty_tpl) {
 if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/common/overwrites/svg-illustration.tpl")) {?>
     <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/common/overwrites/svg-illustration.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 } else { ?>

@@ -5,7 +5,7 @@
     <mask id="64-shared-hosting-5__a" width="60" height="36" x="2" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
         <path fill="var(--svg-icon-color-1)" stroke="var(--svg-icon-color-1)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.00586 18.3524L32.0002 34.9974L60.9946 18.3524L32.0002 1.70752L3.00586 18.3524Z" />
     </mask>
-    <g mask="url(#64-shared-hosting-5__a)">
+    <g>
         <path fill="var(--svg-icon-color-2)" d="M22.0094 21.3452C22.4877 21.0691 23.2632 21.0691 23.7415 21.3452L27.6028 23.5743C28.0811 23.8504 28.0811 24.2981 27.6028 24.5743L23.7415 26.8034C23.2632 27.0795 22.4877 27.0795 22.0094 26.8034L18.1482 24.5743C17.6699 24.2981 17.6699 23.8504 18.1482 23.5743L22.0094 21.3452Z" />
         <rect width="6.45849" height="6.45849" fill="var(--svg-icon-color-2)" rx="1" transform="scale(1.22477 .70707) rotate(45 -16.706 41.195)" />
         <rect width="6.45849" height="6.45849" fill="var(--svg-icon-color-2)" rx="1" transform="scale(1.22477 .70707) rotate(45 -7.116 45.143)" />

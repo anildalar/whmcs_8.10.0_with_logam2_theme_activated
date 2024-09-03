@@ -20,9 +20,9 @@
     --gray-lighter-4:                               #E9EAEC; /* name: Lighter 4; */
     --gray-faded:                                   #F7F7F8; /* name: Lighter 5;*/
     --gray-darker:                                  #17191C; /* name: Darker; */
-    --gray-gradient-start:                          #F3F5F7; /* name: Gradient Start; type: gradientColor; gradientColor: start; */
-    --gray-gradient-end:                            #FCFCFD; /* name: Gradient End; type: gradientColor; gradientColor: end; */
-    --gray-gradient-h:                              linear-gradient( 270deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
+    --gray-gradient-start:                          #FFFFFF; /* name: Gradient Start; type: gradientColor; gradientColor: start; */
+    --gray-gradient-end:                            #FEEFEC; /* name: Gradient End; type: gradientColor; gradientColor: end; */
+    --gray-gradient-h:                              linear-gradient( 90deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
     --gray-gradient-v:                              linear-gradient( 0deg, var(--gray-gradient-end) 0%, var(--gray-gradient-start) 100%); /* name: Gradient Vertical; type:hidden; gradient:true; gradientType: vertical; */
  
     /* Section: Primary */

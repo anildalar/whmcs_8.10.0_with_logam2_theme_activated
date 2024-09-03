@@ -34,11 +34,11 @@
                                     data-predefined-illustration="{$settings.predefined_illustration}"
                                 >
                                     
-                                    {assign 'sortedTypes' ["WHMCS Page","Custom Link","Homepage","Predefined List","Divider","WHMCS Notifications","Client Account", "Language", "Currency Switcher", "Header"]}
+                                    {assign 'sortedTypes' ["WHMCS Page","Custom Link","Homepage","Predefined List","Divider","WHMCS Notifications","Client Account", "Language", "Currency Switcher", "Header", "Header Collapse"]}
                                     {foreach $sortedTypes as $sType}
                                         {foreach $types as $type}
                                             {if $sType == $type->name}
-                                            {if $level == 0 && $type->name !== 'Divider' && $type->name !== 'Predefined List' && $type->name !== "Header"}
+                                            {if $level == 0 && $type->name !== 'Divider' && $type->name !== 'Predefined List' && $type->name !== "Header" && $type->name !== "Header Collapse"}
                                                 {if $location === 'Footer'}
                                                     {if $type->name !== 'WHMCS Notifications' && $type->name !== 'Client Account'}
                                                         <option value="{$type->name}" {if $type->view === $typeView} selected {/if}>{$type->name}</option>
@@ -180,14 +180,11 @@
                                                 Translate
                                             </a>
                                         </div>
-                                        {assign var="tempDropdownDescription" value=","|explode:$display['dropdown_description']|replace:'}':''|replace:'{':''|replace:'&quot;':''}
-                                        {if is_array($tempDropdownDescription)}
-                                            {foreach $tempDropdownDescription as $text}
-                                                {assign var="dropdownDescription" value=":"|explode:$text}
-                                                {if $dropdownDescription[0] == $whmcsLang->value}
-                                                    {$dropdownDescriptionLang = $dropdownDescription[1]}
-                                                {/if} 
-                                            {/foreach}
+                                        {$tempDropdownDescription = $display['dropdown_description']|replace:'&quot;':'"'}
+                                        {$dropdownDescription = $tempDropdownDescription|json_decode:true}
+                                        {$dropdownDescriptionLang = ""}
+                                        {if is_array($dropdownDescription)}
+                                            {$dropdownDescriptionLang = $dropdownDescription[$whmcsLang->value]}
                                         {/if}
                                         <textarea 
                                             type="text" 
@@ -332,7 +329,7 @@
                         {/if}
                         
                         {if $level == 1 || ($level == 0 && $location == 'Footer')} {* dla poziomu 1*}
-                            <div class="col-md-6 {if $typeView == "header"}is-hidden{/if}" data-menu-item-style>
+                            <div class="col-md-6 {if $typeView == "header" || $typeView == "header-collapse"}is-hidden{/if}" data-menu-item-style>
                                 <div class="form-group">
                                     <label class="form-label">
                                         Style
@@ -371,11 +368,11 @@
                                 <input type="text" class="form-control" name="items[{$parent}][{$index}][display][custom-data-classes]" value="{$display['custom-data-classes']}">
                             </div>
                         </div>
-                        <div class="col-md-12 {if $typeView == "predefined-list" || $typeView == "header"}is-hidden{/if}" data-menu-target-blank>
+                        <div class="col-md-12 {if $typeView == "predefined-list" || $typeView == "header" || $typeView == "header-collapse"}is-hidden{/if}" data-menu-target-blank>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group d-flex">
-                                        <label class="form-label text-default form-text flex-grow-1"">
+                                        <label class="form-label text-default form-text flex-grow-1">
                                             Target Blank
                                             {include file="adminarea/includes/helpers/tooltip.tpl" tooltip=$tooltips.menu.menu_items.target_blank}
                                         </label>

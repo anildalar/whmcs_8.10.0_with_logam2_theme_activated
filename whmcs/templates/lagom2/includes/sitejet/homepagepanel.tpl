@@ -1,9 +1,8 @@
 <div class="d-flex flex-direction-column">
-    {if isset($sitejetServices[0]->id)}
-        <img src="{routePath('clientarea-sitejet-get-preview', $sitejetServices[0]->id)}" alt="Sitejet Preview" id="sitejetPromoImage" class="img-fluid"  style="transition: opacity 0.2s ease-in-out;"/>
-    {else}
-         <img src="{$WEB_ROOT}/assets/img/sitejet/preview_placeholder.png" alt="Sitejet Preview" id="sitejetPromoImage" class="img-fluid" style="transition: opacity 0.2s ease-in-out;" />
-    {/if}
+   <div style="height: 227px; width: 100%;" class="w-100 text-center">
+        <img src="{routePath('clientarea-sitejet-get-preview', $sitejetServices[0]->id)}"
+            onerror="this.src = whmcsBaseUrl + '/assets/img/sitejet/preview_placeholder.png';" alt="Sitejet Preview" id="sitejetPromoImage" class="img-fluid"  style="transition: opacity 0.2s ease-in-out; max-height: 227px"/>
+    </div>
     <div class="form-group m-t-2x w-100">
         <label>{lang key='sitejetBuilder.chooseWebsite'}</label>
         <select id="sitejetServiceSelect" class="form-control">
@@ -42,8 +41,12 @@
                 sitejetPreviewImage.data('is-placeholder', false);
             }
         })
-
+        sitejetPreviewImage.on('load', function() {
+            sitejetPreviewImage.parent().removeAttr('style');
+        });
+        
         sitejetPreviewImage.removeAttr('onerror').error(function() {
+           
             if (!sitejetPreviewImage.data('is-placeholder')) {
                 sitejetPreviewImage.attr(
                     'src',

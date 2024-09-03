@@ -287,7 +287,9 @@
         <div class="col-md-6 column-sizer"></div>
         {foreach $panels as $item}
             {if $item->getExtra('colspan') && $item->getName() != "Sitejet Builder"}
-                {outputHomePanels}
+                <div class="col-md-12">
+                    {outputHomePanels}
+                </div>
                 {assign "panels" $panels->removeChild($item->getName())}
             {/if}
         {/foreach}

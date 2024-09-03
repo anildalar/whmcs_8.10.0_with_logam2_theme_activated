@@ -29,16 +29,16 @@
                     {include file="$template/includes/captcha.tpl"}
                 </form>
             {else}
-                <h1 class="banner-title">{$LANG.doToday}</h1>
+                <h1 class="banner-title">Ocean PBX Cloud-Based PBX</h1>
             {/if}
             </div>
         </div>
         {include file="$template/includes/common/svg-illustration.tpl" illustration="site/banner-bg"} 
     </div>
-	<div class="main-body">
+	<div class="main-body ">
         <div class="container">
-            <div class="m-w-lg m-h-a">
-                <div class="section">
+            <div class="">
+                <div class="section text-center">
                     <div class="section-header">
                         <h2 class="section-title">{$LANG.howcanwehelp}</h2>
                     </div>
@@ -81,73 +81,6 @@
                         </div>
                     </div>
                 </div>
-                {if $twitterusername}
-                    <div class="section">
-                        <div class="section-header">
-                            <h2 class="section-title">{$LANG.twitterlatesttweets}</h2>
-                        </div>
-                        <div class="section-body">
-                            <div class="panel" id="twitterFeedOutput">
-                                <div class="loader d-flex justify-center">
-                                    {include file="$template/includes/common/loader.tpl"}
-                                </div>
-                            </div>
-                            <script type="text/javascript" src="templates/{$template}/assets/js/twitter.js"></script>
-                        </div>
-                    </div>
-                {elseif $announcements}
-                    <div class="section">
-                        <div class="section-header">
-                            <h2 class="section-title d-flex space-between">{$LANG.news}<i class="lm lm-info-text text-lighter"></i></h2>
-                        </div>
-                        <div class="section-body">
-                            <div class="announcements-list list-group list-group-lg">
-                                {foreach $announcements as $announcement}
-                                    {if $announcement@index < 2}
-                                        <div class="list-group-item list-group-item-link" data-lagom-href="{routePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}">
-                                            <span class="announcement-date">
-                                                <i class="ls ls-calendar"></i>
-                                                {$carbon->translatePassedToFormat($announcement.rawDate, 'M jS')}
-                                            </span>
-                                            <div class="list-group-item-heading">{$announcement.title}</div>
-                                            <div class="list-group-item-text">
-                                                <p>
-                                                    {if $announcement.text|strip_tags|strlen < 350}
-                                                        {$announcement.text}
-                                                    {else}
-                                                        {$announcement.summary}
-                                                    {/if}
-                                                </p>
-                                            </div>
-                                            <div class="list-group-item-footer">
-                                                {if $announcement.text|strip_tags|strlen >= 350}
-                                                    <span class="btn btn-sm btn-primary-faded">{$LANG.readmore}</span>
-                                                {/if}
-                                                <div class="announcement-details">
-                                                    {if $announcementsFbRecommend}
-                                                        <script>
-                                                            (function(d, s, id) {
-                                                                var js, fjs = d.getElementsByTagName(s)[0];
-                                                                if (d.getElementById(id)) {
-                                                                    return;
-                                                                }
-                                                                js = d.createElement(s); js.id = id;
-                                                                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                                                                fjs.parentNode.insertBefore(js, fjs);
-                                                            }(document, 'script', 'facebook-jssdk'));
-                                                        </script>
-                                                        <div class="fb-like hidden-sm hidden-xs" data-layout="standard" data-lagom-href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
-                                                        <div class="fb-like hidden-lg hidden-md" data-layout="button_count" data-lagom-href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
-                                                    {/if}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/if}
-                                {/foreach}
-                            </div>
-                        </div>
-                    </div>
-                {/if}
             </div> 
         </div>
     </div>

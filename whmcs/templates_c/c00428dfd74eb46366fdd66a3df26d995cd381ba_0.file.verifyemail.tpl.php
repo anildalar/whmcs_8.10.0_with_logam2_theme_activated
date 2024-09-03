@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 01:01:44
+/* Smarty version 3.1.48, created on 2024-09-03 11:59:52
   from '/var/www/html/templates/lagom2/includes/verifyemail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bcf8a4e8e6_27168678',
+  'unifunc' => 'content_66d6fa38298ba1_88310995',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c00428dfd74eb46366fdd66a3df26d995cd381ba' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/verifyemail.tpl',
-      1 => 1681716328,
+      1 => 1681719928,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bcf8a4e8e6_27168678 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6fa38298ba1_88310995 (Smarty_Internal_Template $_smarty_tpl) {
 if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/overwrites/verifyemail.tpl")) {?>
     <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/overwrites/verifyemail.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>  

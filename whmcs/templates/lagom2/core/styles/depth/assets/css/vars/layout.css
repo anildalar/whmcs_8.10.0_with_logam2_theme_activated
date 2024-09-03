@@ -11,7 +11,7 @@
 
      /* Main - Top */
 
-     --main-top-bg:                                 #fff;
+     --main-top-bg:                                 transparent;
      --main-top-border-bottom:                      1px solid var(--ui-block-divider-color);
      --main-top-box-shadow:                         none;
      --main-top-padding:                            4px 0;
@@ -61,7 +61,7 @@
 
      /* Main - Footer */
  
-     --main-footer-bg:                              #fff;                             
+     --main-footer-bg:                              #fff;
      --main-footer-border-top:                      var(--ui-block-divider-border); 
      --main-footer-box-shadow:                      none; 
 

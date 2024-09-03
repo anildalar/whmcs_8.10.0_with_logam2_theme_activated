@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/includes/common/language-chooser-dropdown.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac4998a17_10684378',
+  'unifunc' => 'content_66d6f96c370358_93020659',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e6d96586e48a126a4963592a03bf308098b55481' => 
     array (
       0 => '/var/www/html/templates/lagom2/includes/common/language-chooser-dropdown.tpl',
-      1 => 1713435640,
+      1 => 1714211436,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bac4998a17_10684378 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c370358_93020659 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/vendor/smarty/smarty/libs/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));
 if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/common/overwrites/language-chooser-dropdown.tpl")) {?>
      <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/common/overwrites/language-chooser-dropdown.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);

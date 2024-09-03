@@ -39,7 +39,7 @@
                         {foreach $products as $product}
                             {if $type == "dv"}
                                 {if $dv_lower}
-                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":"" < $dv_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""}
+                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"." < $dv_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"."}
                                         {assign var="dv_lower" value=$product->pricing()->best()->yearlyPrice()|replace:"/`$LANG.pricingCycleShort.annually`":""}
                                     {/if}
                                 {else}
@@ -47,7 +47,7 @@
                                 {/if}
                             {elseif $type == "ov"}
                                 {if $ov_lower}
-                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":"" < $ov_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""}
+                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"." < $ov_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"."}
                                         {assign var="ov_lower" value=$product->pricing()->best()->yearlyPrice()|replace:"/`$LANG.pricingCycleShort.annually`":""}
                                     {/if}
                                 {else}
@@ -55,7 +55,7 @@
                                 {/if}
                             {elseif $type == "ev"}
                                 {if $ev_lower}
-                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"" < $ev_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""}
+                                    {if $product->pricing()->best()->yearlyPrice()|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"." < $ev_lower|replace:$activeCurrency.suffix:""|replace:$activeCurrency.prefix:""|replace:"/`$LANG.pricingCycleShort.annually`":""|replace:".":""|replace:",":"."}
                                         {assign var="ev_lower" value=$product->pricing()->best()->yearlyPrice()|replace:"/`$LANG.pricingCycleShort.annually`":""}
                                     {/if}
                                 {else}

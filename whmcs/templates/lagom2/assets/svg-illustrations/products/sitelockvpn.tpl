@@ -50,8 +50,8 @@
             <stop offset=".78" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="vpn-default-right-center__c" x1="174.771" x2="190.193" y1="289.821" y2="317.791" gradientUnits="userSpaceOnUse">
-            <stop offset=".144" stop-color="#181B1F" />
-            <stop offset=".517" stop-color="#181B1F" stop-opacity="0" />
+            <stop offset=".144" stop-color="var(--svg-illustration-shadow)" />
+            <stop offset=".517" stop-color="var(--svg-illustration-shadow)" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="vpn-default-right-center__d" x1="184.551" x2="225.164" y1="264.457" y2="354.392" gradientUnits="userSpaceOnUse">
             <stop offset=".121" />

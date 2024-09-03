@@ -22,7 +22,7 @@
     --gray-darker:                                  #fff; /* name: Darker; */
     --gray-icons:                                   hsla(220, 100%, 94%, 64%); /* name: Icons; */
     --gray-icons-hover:                             hsla(220, 100%, 94%, 40%); /* name: Icons; */
-    --gray-gradient-start:                          rgba(75, 120, 210, 0.08); /* name: Gradient Start; type: gradientColor; gradientColor: start; */
+    --gray-gradient-start:                          rgba(75, 120, 210, 0.08); /* name: Gradient Start; type: gradientColor; gradientColor: start; */                       ;
     --gray-gradient-end:                            rgba(75, 120, 210, 0.32); /* name: Gradient End; type: gradientColor; gradientColor: end; */
     --gray-gradient-h:                              linear-gradient( 270deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
     --gray-gradient-v:                              linear-gradient( 0deg, var(--gray-gradient-end) 0%, var(--gray-gradient-start) 100%); /* name: Gradient Vertical; type:hidden; gradient:true; gradientType: vertical; */
@@ -116,6 +116,8 @@
     /* Section: Background */
 
     --body-bg:                                      #2c374c; /* name: Body; type: hiddenlist; */
+
+    /* MC Promos Colors */
 
     /* Advanced Colors */
 

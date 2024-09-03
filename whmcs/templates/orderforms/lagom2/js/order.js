@@ -1853,8 +1853,14 @@ jQuery(document).ready(function () {
                                 }
                             }
                             else{
-                                tldCycleSwitcher.attr('data-value', 1);
-                                registerPeriod = '<small>/' + + 1 + langYear + '</small>';
+                                var firstAvaliablePeriod = Object.keys(pricing)[0];
+                                if (firstAvaliablePeriod > 1){
+                                    registerPeriod = '<small>/' + firstAvaliablePeriod + langYears + '</small>';
+                                }
+                                else{
+                                    registerPeriod = '<small>/' + 1 + langYear + '</small>';
+                                }
+                                tldCycleSwitcher.attr('data-value', firstAvaliablePeriod);
                                 text.html(pricing[Object.keys(pricing)[0]].register + registerPeriod);
                             }
                             
@@ -2702,8 +2708,14 @@ jQuery(document).ready(function () {
                                 }
                             }
                             else{
-                                tldCycleSwitcher.attr('data-value', 1);
-                                registerPeriod = '<small>/' + 1 + langYear + '</small>';
+                                var firstAvaliablePeriod = Object.keys(pricing)[0];
+                                if (firstAvaliablePeriod > 1){
+                                    registerPeriod = '<small>/' + firstAvaliablePeriod + langYears + '</small>';
+                                }
+                                else{
+                                    registerPeriod = '<small>/' + 1 + langYear + '</small>';
+                                }
+                                tldCycleSwitcher.attr('data-value', firstAvaliablePeriod);
                                 text.html(pricing[Object.keys(pricing)[0]].register + registerPeriod);
                             }
                         } 
@@ -4676,6 +4688,30 @@ function selectProductPeriodInCart(index, cycle, fullString)
             });
         }
 
+        if (data.products.length > 0 && data.products[index].configoptions.length > 0){
+            let cfArray = data.products[index].configoptions;
+            cfArray.forEach(function callback(value, cfIndex) {
+                let cfPrice = $('[data-product-config-option="'+index+'-'+cfIndex+'"]'),
+                    cfOption = $('[data-product-config-option-option="'+index+'-'+cfIndex+'"]'),
+                    currencyPrefix = cfPrice.data('currency-prefix'),
+                    currencySuffix = cfPrice.data('currency-suffix'),
+                    fullPrice = value.recurring;
+
+                let cfPriceNumeric = fullPrice.replace(currencyPrefix,"").replace(currencySuffix,"");
+                
+
+                if (cfPriceNumeric == "0.00" || cfPriceNumeric == "0,00"){
+                    cfPrice.text("-");
+                } else {
+                    cfPrice.text(fullPrice);
+                }
+                if (value.type == "1" || value.type == "2"){
+                    cfOption.text(value.option);
+                } else if (value.type == 4){
+                    cfOption.text(value.qty+' x '+value.option);
+                }
+            });
+        }
 
         if(typeof(stripe) !== "undefined") {
             updateStripe();

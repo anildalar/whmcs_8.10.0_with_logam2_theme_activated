@@ -1,24 +1,86 @@
 {if file_exists("templates/$template/modules/servers/plesk/overwrites/overview.tpl")}
     {include file="{$template}/modules/servers/plesk/overwrites/overview.tpl"}  
 {else}
-    <script src="modules/servers/plesk/js/client.js"></script>
+    <script src="modules/servers/plesk/js/client.js?v={$versionHash}"></script>
+
     <div class="product-details">
         <div class="row row-eq-height row-eq-height-sm">
             <div class="col-md-6">
-                <div class="product-icon" id="pleskPackagePanel">
-                    <div class="product-content">
-                        <div class="product-image">
-                            {include file="$template/includes/common/svg-icon.tpl" icon="addon" onDark=true}
+                {if $isSitejetActive}
+                    <div class="product-icon panel panel-default" id="pleskPackagePanel">
+                        <div class="product-content">
+                            <div class="product-image">
+                                <img class="card-img-top"
+                                    id="sitejetPublishPreview"
+                                    alt="Sitejet Preview"
+                                    data-serviceid="{$serviceId}"
+                                    data-src="{fqdnRoutePath('clientarea-sitejet-get-preview', $serviceId)}"
+                                    src="{fqdnRoutePath('clientarea-sitejet-get-preview', $serviceId)}"
+                                    onerror="fallbackSitejetPreview(event)"
+                                    onload="sitejetPreviewLoadComplete(event)"
+                                    data-publish-in-progress="false"
+                                    style="max-width: 100%; border: 1px solid #ddd; transition: opacity 0.2s ease-in-out; opacity: 0"
+                                />
+                            </div>    
+                            <h2 class="product-name">
+                                <span class="product-group-name">{$groupname} - </span>{$product} <span class="label label-success">{$status}</span>
+                            </h2>
+                            <div
+                                id="sitejetPublishProgressBarWrapper"
+                                class="product-progress progress w-100 m-b-1x"
+                                style="display: none;"
+                            >
+                                <div class="progress-bar bg-primary"
+                                     role="progressbar"
+                                     aria-valuenow="0"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100"
+                                ></div>
+                            </div>
+                            <div id="sitejetAlert"
+                                 class="product-progress-text text-small"
+                                 role="alert"
+                                 data-progress-text="{lang key='sitejetBuilder.servicePage.publishProgress'}"
+                                 data-success-text="{lang key='sitejetBuilder.servicePage.publishSuccess'}"
+                                 data-error-text="{lang key='clientareaerroroccured'}"
+                                 style="display: none"
+                            ></div>
                         </div>
-                        <h2 class="product-name"><span class="product-group-name">{$groupname} - </span>{$product}</h2>
-                        <div class="product-status">{$LANG.clientareastatus}:
-                            <span class="label label-success">{$status}</span>
+                        <div class="product-footer">
+                            {if $domain}  
+                                {if isset($RSThemes['pages'][$templatefile]) && $RSThemes['pages'][$templatefile]['config']['removeUrlFromDomainName'] == "0"}<a  href="http://{$domain}">{$domain}</a>{else}<span>{$domain}</span>{/if}
+                            {/if}
+                            {if $isSitejetSsoAvailable}
+                                <button id="sitejetEditBtn"
+                                        class="btn btn-link btn-xs btn-custom-action div-service-item"
+                                        data-serviceid="{$serviceId}"
+                                        data-identifier="sitejet"
+                                        data-active="true"
+                                        data-ca-target="_self"
+                                        {if $sitejetPublish}data-do-publish="true"{/if}
+                                        style="display: inline-block"
+                                >
+                                    {lang key='sitejetBuilder.servicePage.editSite'}
+                                </button>
+                            {/if}
                         </div>
                     </div>
-                    {if $domain}  
-                    {if isset($RSThemes['pages'][$templatefile]) && $RSThemes['pages'][$templatefile]['config']['removeUrlFromDomainName'] == "0"}<a class="product-footer" href="http://{$domain}">{$domain}</a>{else}<span class="product-footer">{$domain}</span>{/if}
-                    {/if}
-                </div>
+                {else}
+                    <div class="product-icon" id="pleskPackagePanel">
+                        <div class="product-content">
+                            <div class="product-image">
+                                {include file="$template/includes/common/svg-icon.tpl" icon="addon" onDark=true}
+                            </div>
+                            <h2 class="product-name"><span class="product-group-name">{$groupname} - </span>{$product}</h2>
+                            <div class="product-status">{$LANG.clientareastatus}:
+                                <span class="label label-success">{$status}</span>
+                            </div>
+                        </div>
+                        {if $domain}  
+                            {if isset($RSThemes['pages'][$templatefile]) && $RSThemes['pages'][$templatefile]['config']['removeUrlFromDomainName'] == "0"}<a class="product-footer" href="http://{$domain}">{$domain}</a>{else}<span class="product-footer">{$domain}</span>{/if}
+                        {/if}
+                    </div>
+                {/if}
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default cpanel-usage-stats" id="cPanelUsagePanel">
@@ -169,35 +231,35 @@
                 <div class="panel-body">
                     <div class="row cpanel-feature-row">
                         <div class="col-sm-3 col-xs-6">
-                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Femail-address%2Flist"
+                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Femail-address%2Flist%2FdomainId%2F{$domainId}"
                             target="_blank" class="btn btn-link btn-block">
                                 <i class="lm lm-envelope"></i>
                                 {lang key='plesk.mail'}
                             </a>
                         </div>
                         <div class="col-sm-3 col-xs-6">
-                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Fapp%2Finstalled"
+                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Fapp%2Finstalled%2FdomainId%2F{$domainId}"
                             target="_blank" class="btn btn-link btn-block">
                                 <i class="lm lm-apps-fat"></i>
                                 {lang key='plesk.applications'}
                             </a>
                         </div>
                         <div class="col-sm-3 col-xs-6">
-                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Ffile-manager%2Flist"
+                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Ffile-manager%2Flist%2FdomainId%2F{$domainId}"
                             target="_blank" class="btn btn-link btn-block">
                                 <i class="lm lm-folder"></i>
                                 {lang key='fileManager'}
                             </a>
                         </div>
                         <div class="col-sm-3 col-xs-6">
-                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Fdatabase%2Flist"
+                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Fdatabase%2Flist%2FdomainId%2F{$domainId}"
                             target="_blank" class="btn btn-link btn-block">
                                 <i class="lm lm-database"></i>
                                 {lang key='mysqlDatabases'}
                             </a>
                         </div>
                         <div class="col-sm-3 col-xs-6">
-                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Fstatistics%2Fdetails"
+                            <a href="clientarea.php?action=productdetails&id={$serviceid}&dosinglesignon=1&success_redirect_url=%2Fsmb%2Faccount%2Fswitch%2Fid%2F{$domainId}%3FhideNotice%3D1%26returnUrl%3D%2Fsmb%2Fstatistics%2Fdetails"
                             target="_blank" class="btn btn-link btn-block">
                                 <i class="lm lm-line-graph"></i>
                                 {lang key='plesk.statistics'}
@@ -331,6 +393,7 @@
             </div>
         </div>
     </div> *}
+
     {if $availableAddonProducts}
         <div class="section">
             <div class="section-header">
@@ -360,5 +423,67 @@
                 </div>
             </div>
         </div>    
+    {/if}
+
+    {if !$isSitejetActive && $availableSitejetAddons->count()}
+        <div class="section">
+            <div class="section-header">
+                <h3 class="section-title">{lang key='sitejetBuilder.get.title'}</h3>
+            </div>
+            <div class="section-body">
+                <div class="panel panel-form">
+                    <div class="panel-body">
+                        <div class="row row-sm">
+                            <div class="col-md-8">
+                                <p>{lang key='sitejetBuilder.upsellDescription'}</p>
+                            </div>
+                            <div class="col-md-4">
+                                {foreach $availableSitejetAddons as $availableSitejetAddon}
+                                    <a href="cart.php?a=add&aid={$availableSitejetAddon->id}&serviceid={$serviceId}"class="btn btn-primary btn-block">
+                                        {lang key='activateNowFor' price=$availableSitejetAddon->pricing()->best()->breakdownPrice()}
+                                    </a>
+                                    {break}
+                                {/foreach}
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>    
+    {elseif !$isSitejetActive && $availableSitejetProductUpgrades->count()}
+        <div class="section" id="pleskGetSitejet">
+            <div class="section-header">
+                <h3 class="section-title">{lang key='sitejetBuilder.upgradeTo.title'}</h3>
+            </div>
+            <div class="section-body">
+                <div class="panel panel-form">
+                    <div class="panel-body">
+                        <div class="row row-sm">
+                            <div class="col-md-8">
+                                <p>{lang key='sitejetBuilder.upsellDescription'}</p>
+                            </div>
+                            <div class="col-md-4">
+                                {foreach $availableSitejetProductUpgrades as $availableSitejetProductUpgrade}
+                                        <form method="post" action="upgrade.php">
+                                            <input type="hidden" name="step" value="2">
+                                            <input type="hidden" name="type" value="package">
+                                            <input type="hidden" name="id" value="{$serviceId}">
+                                            <input type="hidden" name="pid" value="{$availableSitejetProductUpgrade->id}">
+                                            <input type="hidden" name="billingcycle" value="{$availableSitejetProductUpgrade->pricing()->best()->cycle()}">
+                                            <button type="submit" name="upgradeSitejet" class="btn btn-primary btn-block">
+                                                {lang key='upgradeToFor'
+                                                package=$availableSitejetProductUpgrade->name
+                                                price=$availableSitejetProductUpgrade->pricing()->best()->breakdownPrice()
+                                                }
+                                            </button>
+                                        </form>
+                                    {break}
+                                {/foreach}
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>   
     {/if}
 {/if}

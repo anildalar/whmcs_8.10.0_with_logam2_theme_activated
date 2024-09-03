@@ -54,7 +54,7 @@ RSThemes - Info
 
             {* 1.3. Integration Available *}
             {if isset($integrationAllowed) && $integrationAllowed}
-                {include file="adminarea/includes/alert/integrationAvailable.tpl"}
+                {include file="adminarea/includes/alert/integrationAvailable.tpl" integrationType=$integratonType}
             {/if}
         {/if}    
 

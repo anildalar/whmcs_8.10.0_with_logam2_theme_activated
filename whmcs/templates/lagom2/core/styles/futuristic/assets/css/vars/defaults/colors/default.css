@@ -24,7 +24,7 @@
     --gray-icons-hover:                             hsla(220, 100%, 90%, 56%); /* name: Icons Hover; */
     --gray-gradient-start:                          rgba(75, 120, 210, 0.08); /* name: Gradient Start; type: gradientColor; gradientColor: start; */
     --gray-gradient-end:                            rgba(75, 120, 210, 0.32); /* name: Gradient End; type: gradientColor; gradientColor: end; */
-    --gray-gradient-h:                              linear-gradient( 270deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
+    --gray-gradient-h:                              linear-gradient( 90deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
     --gray-gradient-v:                              linear-gradient( 0deg, var(--gray-gradient-end) 0%, var(--gray-gradient-start) 100%); /* name: Gradient Vertical; type:hidden; gradient:true; gradientType: vertical; */
  
     /* Section: Primary */
@@ -33,7 +33,7 @@
     --brand-primary-lighter:                        #009AFF; /* name: Lighter; */
     --brand-primary-lighter-2:                      #B3CCFF; /* name: Lighter 2; */
     --brand-primary-lighter-3:                      #D6E4FF; /* name: Lighter 3; */ 
-    --brand-primary-lighter-4:                      #F1F5FE; /* name: Lighter 4; */   
+    --brand-primary-lighter-4:                      #E1EFFF; /* name: Lighter 4; */
     --brand-primary-darker:                         #003CB2; /* name: Darker; */  
     --brand-primary-gradient-start:                 #003CB2; /* name: Gradient Start; type: gradientColor; gradientColor: start; */   
     --brand-primary-gradient-end:                   #1062fe; /* name: Gradient End; type: gradientColor; gradientColor: end; */ 

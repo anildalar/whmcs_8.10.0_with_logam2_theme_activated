@@ -22,9 +22,9 @@
     --gray-darker:                                  #fff; /* name: Darker; */
     --gray-icons:                                   hsla(220, 100%, 94%, 64%); /* name: Icons; */
     --gray-icons-hover:                             hsla(220, 100%, 94%, 40%); /* name: Icons; */
-    --gray-gradient-start:                          rgba(75, 120, 210, 0.08); /* name: Gradient Start; type: gradientColor; gradientColor: start; */
-    --gray-gradient-end:                            rgba(75, 120, 210, 0.32); /* name: Gradient End; type: gradientColor; gradientColor: end; */
-    --gray-gradient-h:                              linear-gradient( 270deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
+    --gray-gradient-start:                          #97A4BE29; /* name: Gradient Start; type: gradientColor; gradientColor: start; */
+    --gray-gradient-end:                            #5C687F29; /* name: Gradient End; type: gradientColor; gradientColor: end; */
+    --gray-gradient-h:                              linear-gradient( 90deg, var(--gray-gradient-start) 0%, var(--gray-gradient-end) 100%); /* name: Gradient Horizontal; type:hidden; gradient:true; gradientType: horizontal; */
     --gray-gradient-v:                              linear-gradient( 0deg, var(--gray-gradient-end) 0%, var(--gray-gradient-start) 100%); /* name: Gradient Vertical; type:hidden; gradient:true; gradientType: vertical; */
  
     /* Section: Primary */
@@ -106,7 +106,7 @@
     --svg-illustration-color-0:                     #1E8649; /* name: Darker ; type: hiddenlist;*/
     --svg-illustration-color-1:                     #25a75b; /* name: Base ; type: hiddenlist;*/
     --svg-illustration-color-2:                     #70d786; /* name: Lighter; type: hiddenlist; */
-    --svg-illustration-color-3:                     #CFF2D7; /* name: Lighter 2; type: hiddenlist; */
+    --svg-illustration-color-3:                     #9BE8AD; /* name: Lighter 2; type: hiddenlist; */
     --svg-illustration-color-4:                     #B8EAC9; /* name: Lighter 3; type: hiddenlist; */
     --svg-illustration-color-5:                     #D0F1DB; /* name: Lighter 4; type: hiddenlist; */
     --svg-illustration-color-6:                     #E0F5E7; /* name: Lighter 5; type: hiddenlist; */

@@ -52,11 +52,19 @@
                     </div>
                 </div>
             </div>
-        {elseif $RSheaderCustomButton}
+        {elseif $RSheaderCustomButton || $RSheaderCustomSearch}
              <div class="main-header-top">
                 <h1 class="main-header-title">{$title}</h1>
                 <div class="search-group">
-                    {$RSheaderCustomButton}
+                    {if $RSheaderCustomSearch}  
+                        <div class="search-field">
+                            {$RSheaderCustomSearch}
+                            <div class="search-field-icon"><i class="lm lm-search"></i></div>                
+                        </div>
+                    {/if}
+                    {if $RSheaderCustomButton}
+                        {$RSheaderCustomButton}
+                    {/if}    
                 </div>
             </div>
         {elseif $templatefile == "products"}

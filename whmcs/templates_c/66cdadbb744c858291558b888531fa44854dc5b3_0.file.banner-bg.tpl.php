@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-01 00:52:20
+/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
   from '/var/www/html/templates/lagom2/assets/svg-illustrations/site/banner-bg.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d3bac49ecc66_89819283',
+  'unifunc' => 'content_66d6f96c397971_86931727',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66cdadbb744c858291558b888531fa44854dc5b3' => 
     array (
       0 => '/var/www/html/templates/lagom2/assets/svg-illustrations/site/banner-bg.tpl',
-      1 => 1694182108,
+      1 => 1694185708,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d3bac49ecc66_89819283 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d6f96c397971_86931727 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="banner-background banner-bg">
     <svg class="banner-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1918 621" style="enable-background:new 0 0 1918 621;" xml:space="preserve">
         <g class="svg-banner-lines banner-lines" data-banner-lines-animation>

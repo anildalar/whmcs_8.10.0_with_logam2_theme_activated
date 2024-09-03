@@ -195,7 +195,10 @@ return [
                 ],
                 'capitalize_section_titles' => [
                     'title' => 'Section Titles Capitalization',
-                ]
+                ],
+                'hide_discounts' => [
+                    'title' => 'Hide Billing Cycle Discounts',
+                ],
             ],
             'order_process' => [
                 'title' => 'Order Process Settings',

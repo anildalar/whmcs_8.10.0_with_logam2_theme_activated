@@ -69,8 +69,8 @@
             <stop offset=".78" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="sitelock-modern-right-center__c" x1="127.146" x2="142.568" y1="284.306" y2="312.275" gradientUnits="userSpaceOnUse">
-            <stop offset=".144" stop-color="#181B1F" />
-            <stop offset=".517" stop-color="#181B1F" stop-opacity="0" />
+            <stop offset=".144" stop-color="var(--svg-illustration-shadow)" />
+            <stop offset=".517" stop-color="var(--svg-illustration-shadow)" stop-opacity="0" />
         </linearGradient>
         <linearGradient id="sitelock-modern-right-center__d" x1="183.069" x2="227.675" y1="274.536" y2="351.769" gradientUnits="userSpaceOnUse">
             <stop />

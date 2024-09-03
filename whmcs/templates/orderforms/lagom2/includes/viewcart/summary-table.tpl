@@ -122,7 +122,7 @@
                                                 <div class="addon-item row">
                                                     <div class="addon-name {if $showqtyoptions || $showAddonQtyOptions}col-6{else}col-7{/if}">
                                                         <span class="item-name">{$configoption.name}:</span>
-                                                        <span class="item-value"> {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}</span>
+                                                        <span class="item-value" data-product-config-option-option="{$num}-{$confnum}"> {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}</span>
                                                     </div>
                                                     {if $showqtyoptions || $showAddonQtyOptions}
                                                         <div class="addon-qty addon-qty-empty col-4 col-md-2">
@@ -130,7 +130,7 @@
                                                         </div>
                                                     {/if}
                                                     <div class="addon-price col">
-                                                        <span class="item-price">{if $configoption.recurring->toNumeric() && $configoption.recurring->toNumeric() != 0}{$configoption.recurring}{else}-{/if}</span>
+                                                        <span class="item-price" data-currency-prefix="{$WHMCSCurrency.prefix}" data-currency-suffix="{$WHMCSCurrency.suffix}" data-product-config-option="{$num}-{$confnum}">{if $configoption.recurring->toNumeric() && $configoption.recurring->toNumeric() != 0}{$configoption.recurring}{else}-{/if}</span>
                                                     </div>
                                                 </div>
                                             {/foreach}

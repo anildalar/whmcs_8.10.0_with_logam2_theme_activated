@@ -13,7 +13,8 @@
                                             <p>{$item['tagline']}</p>
                                         </div>
                                         <div class="banner-actions">
-                                            <a href="{$systemurl}cart.php?a=add&pid={$item['pid']}" class="btn btn-lg btn-primary{if $siteBannerStyle == 'primary'}-faded{/if}">{$LANG.getStartedNow}</a>
+                                            {if routePath('cart-order')|strstr:"?"}{$addChar = "&"}{else}{$addChar = "?"}{/if}
+                                            <a href="{routePath('cart-order')}{$addChar}pid={$item['pid']}" class="btn btn-lg btn-primary{if $siteBannerStyle == 'primary'}-faded{/if}">{$LANG.getStartedNow}</a>
                                             <a href="{routePath('store-product-group', $item['slug'])}" class="btn btn-lg {if $siteBannerStyle == 'default' && !$RSThemes.styles.vars.futuristic}btn-primary-outline{else}btn-light-outline{/if}">{$LANG.learnmore}</a>
                                         </div>
                                     </div>

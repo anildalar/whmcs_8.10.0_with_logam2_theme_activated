@@ -126,8 +126,8 @@
     </g>
     <defs>
         <linearGradient id="mail-security-modern-right-center__b" x1="232.277" x2="260.825" y1="254.368" y2="298.902" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#181B1F" />
-            <stop offset="0.564121" stop-color="#181B1F" stop-opacity="0" />
+            <stop stop-color="var(--svg-illustration-shadow)" />
+            <stop offset="0.564121" stop-color="var(--svg-illustration-shadow)" stop-opacity="0" />
         </linearGradient>
         <clipPath id="mail-security-modern-right-center__a">
             <path fill="var(--svg-illustration-gray-w)" d="M0 0H376V324H0z" transform="translate(.877 .368)" />

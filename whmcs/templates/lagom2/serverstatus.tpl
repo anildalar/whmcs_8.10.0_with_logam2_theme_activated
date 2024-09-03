@@ -43,14 +43,18 @@
                         <div class="panel-title">
                             {$issue.title} <span><i class="ls ls-flag"></i>{$LANG.clientareastatus}: {$issue.status}</span>
                         </div>
-                        {if $issue.clientaffected}{else}{/if}
                     </div>
-                    <div class="panel-body"> 
+                    <div class="panel-body">
                         <div class="priority priority-{$issue.rawPriority|lower}">
                             <span class="priority-text">{$LANG.networkissuespriority} - {$issue.priority}</span>
                             {* <li class="list-group-item {if $issue.rawPriority == 'Critical'}list-group-item-danger{elseif $issue.rawPriority == 'High'}list-group-item-warning{elseif $issue.rawPriority == 'Low'}list-group-item-success{else}list-group-item-info{/if}"><strong>{$LANG.networkissuespriority}</strong> - {$issue.priority}</li> *}
                             {if $issue.server or $issue.affecting}<span class="priority-affectiong">{$LANG.networkissuesaffecting} {$issue.type} - {if $issue.type eq $LANG.networkissuestypeserver}{$issue.server}{else}{$issue.affecting}{/if}</span>{/if}
                         </div>
+                        {if $issue.clientaffected}
+                            <div class="alert alert-danger alert-xs">
+                                {lang key='networkIssues.affectingYou'}
+                            </div>
+                        {/if}
                         <p>{$issue.description}</p>
                     </div>
                     <div class="panel-footer text-small text-light">
@@ -63,10 +67,10 @@
             {/foreach}
         </div>
         {if $issues}
-            <div class="network-status-pagination pagination">
+            {*<div class="network-status-pagination pagination">
                 <li class="paginate_button previous {if !$prevpage}disabled{/if}"><a href="{if $prevpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$prevpage}{else}#{/if}">{$LANG.previouspage}</a></li>
                 <li class="paginate_button next {if !$nextpage}disabled{/if}"><a href="{if $nextpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$nextpage}{else}#{/if}">{$LANG.nextpage}</a></li>
-            </div>
+            </div>*}
         {/if}
     </div>
     {if $servers}
