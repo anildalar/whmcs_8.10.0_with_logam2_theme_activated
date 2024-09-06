@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-03 11:56:28
+/* Smarty version 3.1.48, created on 2024-09-05 08:56:50
   from '/var/www/html/templates/lagom2/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d6f96c0e5995_12934748',
+  'unifunc' => 'content_66d97252110f58_31560751',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b06488d87f39f186cfa8990ebaa32b84d471da3f' => 
     array (
       0 => '/var/www/html/templates/lagom2/header.tpl',
-      1 => 1725363460,
+      1 => 1725450594,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/".((string)$_smarty_tpl->tpl_vars[\'template\']->value)."/core/layouts/main-menu/default/default.tpl' => 1,
   ),
 ),false)) {
-function content_66d6f96c0e5995_12934748 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d97252110f58_31560751 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/html/vendor/smarty/smarty/libs/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));
 if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)."/overwrites/header.tpl")) {?>
     <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/overwrites/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
@@ -35,6 +35,9 @@ if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['WEB_ROOT']->value;?>
+/templates/<?php echo $_smarty_tpl->tpl_vars['template']->value;?>
+/assets/css/custom.css">
         <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/common/seo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
         <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);

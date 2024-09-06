@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-03 12:05:22
+/* Smarty version 3.1.48, created on 2024-09-05 08:58:02
   from '/var/www/html/modules/addons/RSThemes/views/adminarea/includes/tabs.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d6fb82a57cb4_46313780',
+  'unifunc' => 'content_66d9729a0af291_08686047',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d6fb82a57cb4_46313780 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d9729a0af291_08686047 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="app-main__nav">
     <div class="container">
         <ul class="nav nav--md nav--h nav--tabs">

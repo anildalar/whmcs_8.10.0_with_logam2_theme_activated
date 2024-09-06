@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2024-09-03 11:56:12
+/* Smarty version 3.1.48, created on 2024-09-05 08:48:50
   from '/var/www/html/admin/templates/blend/includes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_66d6f95cb475b2_92897589',
+  'unifunc' => 'content_66d97072cd7f29_26868798',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66d6f95cb475b2_92897589 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d97072cd7f29_26868798 (Smarty_Internal_Template $_smarty_tpl) {
 ?><form method="post" action="<?php echo routePath('admin-notes-save');?>
 " id="frmMyNotes">
     <input type="hidden" name="action" value="savenotes" />
